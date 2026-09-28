@@ -44,7 +44,7 @@ Borra todo ese contenido.
 
 En este repositorio de GitHub encontrarás el archivo que contiene el script.
 
-1. Abre el archivo del script.
+1. Abre el archivo del script, ver arriba script.gs
 2. Selecciona todo el código.
 3. Cópialo.
 4. Vuelve a Google Apps Script.
