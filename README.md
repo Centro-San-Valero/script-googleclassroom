@@ -1,34 +1,83 @@
-# Instrucciones para ejecutar el script
+# Copiar un curso de Google Classroom con Google Apps Script
 
-Este script está creado con **Google Apps Script** y permite automatizar tareas de Google Workspace.
+Este proyecto permite copiar contenido de un curso de **Google Classroom** a otro mediante **Google Apps Script**.
 
-No es necesario saber programar para utilizarlo. Solo hay que copiar el código desde este repositorio de GitHub y ejecutarlo siguiendo estos pasos.
+El script copia:
 
-## 1. Abrir Google Apps Script
+- Temas.
+- Tareas.
+- Preguntas.
+- Cuestionarios.
+- Materiales.
+- Archivos adjuntos de Google Drive.
+- Opcionalmente, anuncios del tablón.
 
-Accede a:
+Por defecto:
 
-**https://script.google.com**
-
-Inicia sesión con tu cuenta de Google.
-
-> Utiliza la misma cuenta con la que tienes acceso a Google Classroom y a los cursos que quieras utilizar.
+- Los contenidos se crean como **borradores**.
+- No se copian las fechas de entrega.
+- No se copian los anuncios.
+- Los archivos adjuntos se duplican en el curso de destino.
 
 ---
 
-## 2. Crear un nuevo proyecto
+# Requisitos
+
+Para poder utilizar este script necesitas:
+
+1. Una cuenta de Google.
+2. Ser **profesor/a** del curso de origen.
+3. Ser **profesor/a** del curso de destino.
+4. Tener acceso a Google Classroom.
+5. Crear un proyecto en Google Apps Script.
+6. Activar el servicio avanzado **Google Classroom API**.
+
+No es necesario tener conocimientos de programación.
+
+---
+
+# 1. Crear el curso de destino
+
+Antes de ejecutar el script debes tener:
+
+- Un curso de Google Classroom que actuará como **curso de origen**.
+- Otro curso de Google Classroom que actuará como **curso de destino**.
+
+El curso de destino puede estar vacío.
+
+El script copiará allí los contenidos del curso de origen.
+
+---
+
+# 2. Abrir Google Apps Script
+
+Accede a:
+
+https://script.google.com
+
+Inicia sesión con tu cuenta de Google.
+
+Es importante utilizar la misma cuenta con la que eres profesor/a de los dos cursos de Google Classroom.
 
 Pulsa:
 
 **Nuevo proyecto**
 
-Se abrirá el editor de Google Apps Script.
+---
 
-Aparecerá normalmente un archivo llamado:
+# 3. Copiar el código del script
+
+En este repositorio encontrarás el archivo:
+
+`script.gs`
+
+Abre el archivo y copia todo su contenido.
+
+En Google Apps Script aparecerá normalmente un archivo llamado:
 
 `Código.gs`
 
-con un contenido parecido a:
+Borra el contenido que aparece por defecto:
 
 ```javascript
 function myFunction() {
@@ -36,16 +85,60 @@ function myFunction() {
 }
 ```
 
-Borra todo ese contenido.
+y pega en su lugar todo el contenido de `script.gs`.
 
 ---
 
-## 3. Copiar el código desde GitHub
+# 4. Guardar el proyecto
 
-En este repositorio de GitHub encontrarás el archivo que contiene el script.
+Pulsa el botón **Guardar** o utiliza:
 
-1. Abre el archivo del script, ver arriba script.gs
-2. Selecciona todo el código.
-3. Cópialo.
-4. Vuelve a Google Apps Script.
-5
+```text
+Ctrl + S
+```
+
+Puedes poner al proyecto un nombre fácil de identificar, por ejemplo:
+
+```text
+Copiar curso de Google Classroom
+```
+
+---
+
+# 5. Activar Google Classroom API
+
+Este paso es obligatorio.
+
+El script utiliza la API de Google Classroom para leer y crear temas, tareas y materiales.
+
+En la barra lateral izquierda de Google Apps Script busca:
+
+**Servicios**
+
+Pulsa el botón:
+
+**+**
+
+Aparecerá una lista de servicios disponibles.
+
+Busca:
+
+**Google Classroom API**
+
+Selecciónalo y pulsa:
+
+**Añadir**
+
+Cuando termine, debería aparecer un nuevo servicio llamado aproximadamente:
+
+```text
+Classroom
+```
+
+en el apartado de servicios del proyecto.
+
+> Si no se añade este servicio, el script mostrará errores relacionados con `Classroom`.
+
+---
+
+# 6. Obtener las URL de los cursos
